@@ -1,4 +1,4 @@
-package at.htl;
+package at.htl.Boundary;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

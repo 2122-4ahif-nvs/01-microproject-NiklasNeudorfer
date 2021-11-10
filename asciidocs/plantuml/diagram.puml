@@ -1,8 +1,8 @@
 @startuml
 
 class Device{
-- DeviceID: int
-- Name: String
+- int: DeviceID
+- String: Name
 - Usage: Usage
 }
 
@@ -13,9 +13,9 @@ enum Usage{
 }
 
 class Room{
-- RoomNr: int
-- Floor: int
-- Name: String
+- int: RoomNr
+- int: Floor
+- String: Name
 }
 
 Room "*"--"*" Device

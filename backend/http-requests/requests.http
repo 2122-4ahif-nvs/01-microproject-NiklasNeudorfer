@@ -1,0 +1,23 @@
+GET http://localhost:8080/device/?n=chromecast4k
+
+###
+
+GET http://localhost:8080/hello
+
+###
+
+POST http://localhost:8080/device/save
+Content-Type: application/json
+
+{
+  "deviceName":"HP Laserjet 234"
+}
+
+###
+
+GET http://localhost:8080/device/findAll
+
+###
+
+
+

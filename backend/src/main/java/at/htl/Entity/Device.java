@@ -1,12 +1,23 @@
 package at.htl.Entity;
 
+import org.hibernate.annotations.NamedQuery;
+
+import javax.json.bind.annotation.JsonbProperty;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@NamedQuery(
+        name = "Device.findAll",
+        query = "select d from device d"
+)
+
+@Entity(name = "device")
 public class Device {
-    private String name;
+
+    @JsonbProperty("deviceName")
+    private String deviceName;
+
     @Id
     @GeneratedValue
     private Long id;
@@ -17,19 +28,19 @@ public class Device {
     }
 
     public Device(String name) {
-        this.name = name;
+        this.deviceName = name;
     }
 
     //endregion
 
     // region properties
 
-    public String getName() {
-        return name;
+    public String getDeviceName() {
+        return deviceName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDeviceName(String device_name) {
+        this.deviceName = device_name;
     }
 
     public Long getId() {
@@ -41,7 +52,7 @@ public class Device {
     @Override
     public String toString() {
         return "Device{" +
-                "name='" + name + '\'' +
+                "name='" + deviceName + '\'' +
                 ", id=" + id +
                 '}';
     }

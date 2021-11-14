@@ -1,9 +1,15 @@
 package at.htl.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Room {
     private int roomNr;
     private int floor;
     private String name;
+    @Id
+    private Long id;
 
     //region constructor
     public Room(int roomNr, int floor, String name) {
@@ -39,6 +45,15 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
     }
     //endregion
 }

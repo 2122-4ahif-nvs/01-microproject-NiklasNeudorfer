@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @QuarkusTest
 class DeviceResourceTest {
 
+
     @Test
     public void getDevice(){
         when()

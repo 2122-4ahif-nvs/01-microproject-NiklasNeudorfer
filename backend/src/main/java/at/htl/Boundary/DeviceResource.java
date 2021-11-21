@@ -6,8 +6,11 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.net.URI;
 import java.util.List;
 
 @Path("/device")
@@ -18,9 +21,16 @@ public class DeviceResource {
 
     @POST
     @Path("save")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void saveDevice(Device device){
-        deviceRepository.save(device);
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response saveDevice(
+            @FormParam("name")String devicename,
+            @Context UriInfo uriInfo
+            ){
+        URI uri = uriInfo.getAbsolutePathBuilder().path("42").build();
+
+        deviceRepository.save(new Device(devicename));
+
+        return Response.created(uri).build();
     }
 
     @GET
@@ -38,5 +48,4 @@ public class DeviceResource {
     ){
         return Response.ok(new Device(device_name)).build();
     }
-
 }

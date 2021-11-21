@@ -17,7 +17,17 @@ Content-Type: application/json
 
 GET http://localhost:8080/device/findAll
 
+### jsonP test
+
+GET http://localhost:8080/hello/jsonp
+
+###
+
+GET http://localhost:8080/hello/jsonpXML
+Accept: application/xml
+
 ###
 
 
-
+GET http://localhost:8080/hello/jsonp
+Accept: application/json

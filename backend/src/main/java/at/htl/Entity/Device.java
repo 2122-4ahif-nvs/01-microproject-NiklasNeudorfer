@@ -1,21 +1,32 @@
 package at.htl.Entity;
 
-import org.hibernate.annotations.NamedQuery;
 
 import javax.json.bind.annotation.JsonbProperty;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@NamedQuery(
-        name = "Device.findAll",
-        query = "select d from device d"
-)
 
+@XmlRootElement
 @Entity(name = "device")
+@NamedQueries({
+        @NamedQuery(
+                name = "Device.findAll",
+                query = "select d from device d"
+        ),
+        @NamedQuery(
+                name = "Device.findPerName",
+                    query = "select d from device d where d.deviceName LIKE :NAME"
+        ),
+        @NamedQuery(
+                name ="Device.countByInitial",
+                query = "select substring(d.deviceName,1,1), count(d) from device d group by substring(d.deviceName,1,1) "
+        )
+
+})
 public class Device {
 
     @JsonbProperty("deviceName")
+    @Column(name ="NAME", unique = true)
     private String deviceName;
 
     @Id

@@ -36,10 +36,10 @@ public class DeviceRepository {
         return query.getSingleResult();
     }
 
-    public Map<Character, Integer> countByInitials(){
+    public Map<Character, Integer> countByInitial(){
         Map<Character, Integer> result = new HashMap<>();
         Query query = em
-                .createNamedQuery("Device.findPerName");
+                .createNamedQuery("Device.countByInitial");
         List<Object[]> initials = query.getResultList();
 
         for (Object[] initial : initials) {
@@ -51,6 +51,14 @@ public class DeviceRepository {
         }
 
         return result;
+    }
+
+    @Transactional
+    public void removeDevice(String deviceName){
+        Query query = em
+                .createNamedQuery("Device.removeByName")
+                .setParameter("NAME",deviceName);
+        query.executeUpdate();
     }
 
 }

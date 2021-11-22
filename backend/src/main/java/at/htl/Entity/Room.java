@@ -2,13 +2,23 @@ package at.htl.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "BM_ROOM")
 public class Room {
+      @Column(name = "R_ROOMNR")
     private int roomNr;
+
+    @Column(name = "R_FLOOR")
     private int floor;
+
+    @Column(name = "R_NAME")
     private String name;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "R_ID")
     private Long id;
 
     //region constructor

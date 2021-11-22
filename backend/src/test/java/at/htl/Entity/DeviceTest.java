@@ -2,14 +2,19 @@ package at.htl.Entity;
 
 import at.htl.Control.DeviceRepository;
 import io.quarkus.test.junit.QuarkusTest;
-import io.smallrye.common.constraint.Assert;
-import org.jboss.logmanager.Logger;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
+import java.util.List;
+import java.util.Map;
+
+import static java.lang.System.out;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+
 
 @QuarkusTest
 class DeviceTest {
@@ -20,10 +25,13 @@ class DeviceTest {
     DeviceRepository deviceRepository;
 
     @Test
-    void createDevice(){
-        Device device = new Device("Chromecast 4K");
+    void createAndRemoveDevice(){
+        Device device = new Device("HP Laserjet");
         Device device1 = deviceRepository.save(device);
         System.out.println(device1);
+        assertThat(device.getDeviceName()).isEqualTo(device1.getDeviceName());
         //fail();
+        deviceRepository.removeDevice(device.getDeviceName());
+        assertThat(deviceRepository.findAll().size()).isEqualTo(1);
     }
 }

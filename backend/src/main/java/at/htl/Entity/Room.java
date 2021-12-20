@@ -4,10 +4,32 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.*;
 
+
+
+@NamedQueries({
+@NamedQuery(
+        name = "Room.findAll",
+        query = "select r from Room r"
+),
+@NamedQuery(
+        name = "Room.findByRoomNr",
+        query = "select r from Room r where r.roomNr = :NR"
+),
+@NamedQuery(
+        name = "Room.removeByNr",
+        query = "DELETE from Room r where r.roomNr = :NR"
+),
+@NamedQuery(
+        name = "Room.findRoomByFloor",
+        query = "select r from Room r where r.floor = :FLOOR"
+)
+})
+
 @Entity
 @Table(name = "BM_ROOM")
 public class Room {
-      @Column(name = "R_ROOMNR")
+    @Id
+    @Column(name = "R_ROOMNR")
     private int roomNr;
 
     @Column(name = "R_FLOOR")
@@ -15,11 +37,6 @@ public class Room {
 
     @Column(name = "R_NAME")
     private String name;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "R_ID")
-    private Long id;
 
     //region constructor
     public Room(int roomNr, int floor, String name) {
@@ -57,13 +74,5 @@ public class Room {
         this.name = name;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
     //endregion
 }

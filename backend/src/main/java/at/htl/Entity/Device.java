@@ -4,6 +4,7 @@ package at.htl.Entity;
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
@@ -41,6 +42,7 @@ public class Device {
     private Long id;
 
     @JoinColumn(name = "D_OWNER")
+    //@NotBlank(message = "every device needs a name")
     @ManyToOne
     @JsonbTransient
     private Owner owner;

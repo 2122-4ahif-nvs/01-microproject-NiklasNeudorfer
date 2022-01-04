@@ -3,7 +3,8 @@ package at.htl.Entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.*;
-
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 
 @NamedQueries({
@@ -30,6 +31,7 @@ import javax.persistence.*;
 public class Room {
     @Id
     @Column(name = "R_ROOMNR")
+    @Min(message = "Rooms can`t have a negative number!", value = 1)
     private int roomNr;
 
     @Column(name = "R_FLOOR")

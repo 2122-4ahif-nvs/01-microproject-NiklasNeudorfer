@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @ApplicationScoped
@@ -16,6 +17,10 @@ public class OwnerRepository {
 
     @Inject
     EntityManager em;
+
+    public boolean validateOwner(@Valid Owner owner){
+        return true;
+    }
 
     @Transactional
     public Owner save(Owner owner) {

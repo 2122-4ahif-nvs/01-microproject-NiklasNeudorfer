@@ -1,6 +1,8 @@
 package at.htl.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @NamedQueries({
         @NamedQuery(
@@ -31,9 +33,12 @@ public class Owner {
     private Long id;
 
     @Column(name = "O_FIRSTNAME")
+    //@NotBlank(message = "The Owner needs a Firstname")
     private String firstName;
 
     @Column(name = "O_LASTNAME")
+    //@NotBlank(message = "The Owner needs a Lastname")
+    @NotBlank(message = "öladskfjöladskfjföladskfjöladskfj")
     private String lastName;
 
     // region constructor

@@ -6,6 +6,7 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 
 
 @XmlRootElement
@@ -27,6 +28,10 @@ import javax.xml.bind.annotation.XmlRootElement;
         @NamedQuery(
                 name = "Device.removeByName",
                 query = "DELETE from BM_DEVICE d where d.deviceName = :NAME"
+        ),
+        @NamedQuery(
+                name = "Device.findById",
+                query = "select d from BM_DEVICE d where d.id = :ID"
         )
 
 })
@@ -43,9 +48,14 @@ public class Device {
 
     @JoinColumn(name = "D_OWNER")
     //@NotBlank(message = "every device needs a name")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JsonbTransient
     private Owner owner;
+
+    @Column(name = "D_PRICE")
+    @JsonbProperty("price")
+    private BigDecimal price;
+
 
     // region constructor
 
@@ -56,9 +66,15 @@ public class Device {
         this.deviceName = name;
     }
 
-    public Device(String name, Owner owner) {
+    public Device(String name, BigDecimal price) {
+        this.deviceName = name;
+        this.price = price;
+    }
+
+    public Device(String name, Owner owner, BigDecimal price) {
         this.owner = owner;
         this.deviceName = name;
+        this.price = price;
     }
 
     //endregion
@@ -85,6 +101,13 @@ public class Device {
         this.owner = owner;
     }
 
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
     // endregion
 
 

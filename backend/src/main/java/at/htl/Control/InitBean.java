@@ -1,12 +1,14 @@
 package at.htl.Control;
 
 import at.htl.Entity.Device;
+import at.htl.Entity.Owner;
 import at.htl.Entity.Room;
 import io.quarkus.runtime.StartupEvent;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @ApplicationScoped
@@ -19,7 +21,9 @@ public class InitBean {
     RoomRepository roomRepository;
 
     void init(@Observes StartupEvent event) {
-        Device d = new Device("Chromecast 4K");
+        Owner o = new Owner("Sysadmin", "HTBLA Leonding");
+
+        Device d = new Device("Chromecast 4K", o, BigDecimal.valueOf(424.99));
         deviceRepository.save(d);
 
         int floor = 1;

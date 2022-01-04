@@ -38,7 +38,6 @@ public class Owner {
 
     @Column(name = "O_LASTNAME")
     //@NotBlank(message = "The Owner needs a Lastname")
-    @NotBlank(message = "öladskfjöladskfjföladskfjöladskfj")
     private String lastName;
 
     // region constructor

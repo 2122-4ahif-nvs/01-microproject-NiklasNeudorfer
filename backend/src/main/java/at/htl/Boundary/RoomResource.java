@@ -1,45 +1,47 @@
 package at.htl.Boundary;
 
 import at.htl.Control.RoomRepository;
+import at.htl.Entity.Device;
 import at.htl.Entity.Room;
-import org.eclipse.microprofile.graphql.*;
+import io.quarkus.qute.CheckedTemplate;
+import io.quarkus.qute.TemplateInstance;
 
 import javax.inject.Inject;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@GraphQLApi
+@Path("/room")
 public class RoomResource {
+
     @Inject
     RoomRepository roomRepository;
 
-    @Query("allRooms")
-    @Description("Get all Rooms")
-    public List<Room> getAllRooms(){
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance roomSimple(String name);
+        public static native TemplateInstance room(Room room);
+    }
+
+    @Path("/simpleQute")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public TemplateInstance getTxt(@QueryParam("name") String name){
+        return Templates.roomSimple(name);
+    }
+
+    @Path("htmlQute/{id}")
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance getHtml(@PathParam("id")int nr){
+        return Templates.room(roomRepository.findByRoomNr(nr));
+    }
+
+
+    @Path("/findAll")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Room> findAll(){
         return roomRepository.findAll();
-    }
-
-    @Query
-    @Description("Get a Room by RoomNr")
-    public Room getRoom(@Name("roomNr") int id){
-        return roomRepository.findByRoomNr(id);
-    }
-
-    @Query("getByFloor")
-    @Description("Get a Room by the Floor it is on")
-    public List<Room> getRoomByFloor(@Name("floor") int floor){
-        return roomRepository.findRoomsByFloor(floor);
-    }
-
-    @Mutation
-    public Room createRoom(Room room){
-        return roomRepository.save(room);
-    }
-
-    @Mutation
-    public Room deleteRoom(int roomNr){
-        Room r = roomRepository.findByRoomNr(roomNr);
-        roomRepository.removeRoom(roomNr);
-        return r;
     }
 
 }

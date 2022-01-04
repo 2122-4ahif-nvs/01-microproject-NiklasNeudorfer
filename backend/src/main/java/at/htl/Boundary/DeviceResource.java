@@ -2,11 +2,13 @@ package at.htl.Boundary;
 
 import at.htl.Control.DeviceRepository;
 import at.htl.Entity.Device;
+import io.quarkus.qute.CheckedTemplate;
+import io.quarkus.qute.Location;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
-import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -21,15 +23,6 @@ public class DeviceResource {
     @Inject
     DeviceRepository deviceRepository;
 
-    @Inject
-    Template hello;
-
-    @Path("/textdocument")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public TemplateInstance get(@QueryParam("name") String name) {
-        return hello.data("name", name);
-    }
 
     @POST
     @Path("save")

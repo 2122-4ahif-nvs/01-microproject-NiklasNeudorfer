@@ -36,6 +36,13 @@ public class DeviceRepository {
         return query.getSingleResult();
     }
 
+    public Device findById(long id){
+        TypedQuery<Device> query = em
+                .createNamedQuery("Device.findById",Device.class)
+                .setParameter("ID",id);
+        return query.getSingleResult();
+    }
+
     public Map<Character, Integer> countByInitial(){
         Map<Character, Integer> result = new HashMap<>();
         Query query = em

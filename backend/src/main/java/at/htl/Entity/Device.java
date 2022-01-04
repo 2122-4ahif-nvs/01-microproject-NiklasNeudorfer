@@ -2,6 +2,7 @@ package at.htl.Entity;
 
 
 import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -39,12 +40,22 @@ public class Device {
     @Column(name = "D_ID")
     private Long id;
 
+    @JoinColumn(name = "D_OWNER")
+    @ManyToOne
+    @JsonbTransient
+    private Owner owner;
+
     // region constructor
 
     public Device() {
     }
 
     public Device(String name) {
+        this.deviceName = name;
+    }
+
+    public Device(String name, Owner owner) {
+        this.owner = owner;
         this.deviceName = name;
     }
 
@@ -63,6 +74,15 @@ public class Device {
     public Long getId() {
         return id;
     }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
     // endregion
 
 

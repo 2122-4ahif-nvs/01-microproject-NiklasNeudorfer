@@ -1,12 +1,36 @@
-{@at.htl.Entity.Room room}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>{room.name}</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-<h1>{room.name}</h1>
+<h1>Room Information</h1>
+
+All informations to Room {room.roomNr}: <br>
+
+
+<table bordercolor="green">
+    <tr>
+        <td>Name</td>
+        <td>{room.name}</td>
+    </tr>
+    <tr>
+        <td>Raumnummer</td>
+        <td>{room.roomNr}</td>
+    </tr>
+    <tr>
+        <td>Etage</td>
+        <td>{room.floor}</td>
+    </tr>
+</table>
+
+
 </body>
 </html>
 

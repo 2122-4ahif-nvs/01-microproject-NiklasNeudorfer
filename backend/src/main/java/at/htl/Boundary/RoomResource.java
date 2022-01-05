@@ -30,9 +30,9 @@ public class RoomResource {
         return Templates.roomSimple(name);
     }
 
-    @Path("htmlQute/{id}")
+    @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance getHtml(@PathParam("id")int nr){
+    public TemplateInstance get(@QueryParam("id")int nr){
         return Templates.room(roomRepository.findByRoomNr(nr));
     }
 

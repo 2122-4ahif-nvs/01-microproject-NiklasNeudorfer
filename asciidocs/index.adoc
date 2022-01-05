@@ -21,3 +21,7 @@ plantuml::plantuml/diagram.puml[]
 == Short Description
 
 Es zeigt dem User wo welche Geräte installiert sind. Damit kann man einfach sehen in welchem Raum welches Gerät installiert ist.
+
+
+== Cheatsheet
+* link:https://2122-4ahif-nvs.github.io/01-microproject-NiklasNeudorfer/cheatsheet.html[Cheatsheet]

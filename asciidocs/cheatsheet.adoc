@@ -1,0 +1,116 @@
+= Cheatsheet
+Niklas Neudorfer
+1.0.0, 2022-01-05: Cheatsheet
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// print the toc here (not at the default position)
+//toc::[]
+
+== Validation
+
+* ermöglicht einfache überprüfung von Feldern und es kann dadurch auch vermieden werden, dass unzulässige Werte in ein Feld gespeichert werden z.B. wenn ein numerisches Feld nicht negativ sein soll, kann man dies hiermit festlegen
+
+=== Alternativen
+
+* anstatt `Hibernate Validator` -> `Apache Validator`
+
+=== Implementierung
+
+bei den jeweiligen Feldern direkt:
+
+.Owner
+[source,java]
+----
+    @Column(name = "O_FIRSTNAME")
+    @NotBlank(message = "The Owner needs a Firstname") //<1>
+    private String firstName;
+
+    @Column(name = "O_LASTNAME")
+    @NotBlank(message = "The Owner needs a Lastname") // <1>
+    private String lastName;
+----
+
+<.> checks if the name is an empty string
+
+== QUTE
+
+* ermöglicht das erstellen von HTML Templates welche dann ganz einfach mit den jeweiligen Daten befüllt werden können.
+
+-> wenn man also schnell eine einfache website benötigt
+
+=== Implementierung
+
+.RoomResource
+
+[source,java]
+----
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance room(Room room);
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance get(@QueryParam("id")int nr){
+        return Templates.room(roomRepository.findByRoomNr(nr));
+    }
+----
+
+.templates/RoomResource/room.html
+
+[source,html]
+----
+<table>
+    <tr>
+        <td>Name</td>
+        <td>{room.name}</td>
+    </tr>
+    <tr>
+        <td>Raumnummer</td>
+        <td>{room.roomNr}</td>
+    </tr>
+    <tr>
+        <td>Etage</td>
+        <td>{room.floor}</td>
+    </tr>
+</table>
+----
+
+=== Alternativen:
+
+* Angular
+* React
+* View
+
+
+
+
+== gRPC
+
+=== Alternativen
+
+* Rest
+* MQTT
+
+=== Welches Problem wird gelöst?
+
+*  einfacheres loadbalancing
+
+*  bessere performance:
+
+** es wird HTTP/2 verwendet, dadurch werden nur neue Daten an den Server geschickt und jede die beim Request gleich wären wie bei einem zuvor gesendeten.
+Dadurch hat der Server viel weniger Daten die er verarbeiten muss und ist somit um einiges schneller
+
+
+=== Konzept:
+
+* mithilfe eines Proto files (welche jeweils auf Server und Client vorhanden sein müssen) wird es ermöglicht,
+im Vergleich zu RestAPI, viel kleinere Daten zu übermitteln, dadurch wird die Geschwindigkeit auch stark erhöht

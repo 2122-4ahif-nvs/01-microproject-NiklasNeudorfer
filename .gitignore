@@ -11,3 +11,4 @@ gh-pages/
 .env
 *.zip
 backend/db-postgres/
+/backend/db/

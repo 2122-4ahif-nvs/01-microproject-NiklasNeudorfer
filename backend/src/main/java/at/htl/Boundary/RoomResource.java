@@ -6,6 +6,7 @@ import at.htl.Entity.Room;
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -37,6 +38,7 @@ public class RoomResource {
     }
 
 
+    @RolesAllowed("user")
     @Path("/findAll")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

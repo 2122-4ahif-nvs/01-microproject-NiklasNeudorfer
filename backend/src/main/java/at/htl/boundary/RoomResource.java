@@ -1,7 +1,6 @@
-package at.htl.Boundary;
+package at.htl.boundary;
 
-import at.htl.Control.RoomRepository;
-import at.htl.Entity.Device;
+import at.htl.control.RoomRepository;
 import at.htl.Entity.Room;
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;

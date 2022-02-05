@@ -1,6 +1,5 @@
-package at.htl.Control;
+package at.htl.control;
 
-import at.htl.Entity.Device;
 import at.htl.Entity.Room;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -9,9 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @ApplicationScoped
 public class RoomRepository {

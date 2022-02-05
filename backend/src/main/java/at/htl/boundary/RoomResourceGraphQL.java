@@ -1,6 +1,6 @@
-package at.htl.Boundary;
+package at.htl.boundary;
 
-import at.htl.Control.RoomRepository;
+import at.htl.control.RoomRepository;
 import at.htl.Entity.Room;
 import org.eclipse.microprofile.graphql.*;
 

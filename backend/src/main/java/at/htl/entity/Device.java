@@ -1,10 +1,9 @@
-package at.htl.Entity;
+package at.htl.entity;
 
 
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 

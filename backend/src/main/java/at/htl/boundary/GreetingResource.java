@@ -1,6 +1,4 @@
-package at.htl.Boundary;
-
-import at.htl.Entity.Device;
+package at.htl.boundary;
 
 import javax.json.Json;
 import javax.json.JsonObject;

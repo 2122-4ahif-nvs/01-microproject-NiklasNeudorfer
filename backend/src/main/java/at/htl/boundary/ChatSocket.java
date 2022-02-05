@@ -1,4 +1,4 @@
-package at.htl.Boundary;
+package at.htl.boundary;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

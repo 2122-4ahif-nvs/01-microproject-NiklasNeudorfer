@@ -1,4 +1,4 @@
-package at.htl.Boundary;
+package at.htl.boundary;
 
 import io.quarkus.example.Greeter;
 import io.quarkus.example.HelloReply;

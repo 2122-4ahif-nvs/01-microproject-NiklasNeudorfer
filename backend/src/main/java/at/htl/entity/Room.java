@@ -1,10 +1,9 @@
-package at.htl.Entity;
+package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 
 @NamedQueries({

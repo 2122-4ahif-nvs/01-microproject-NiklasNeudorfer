@@ -1,19 +1,13 @@
-package at.htl.Entity;
+package at.htl.entity;
 
-import at.htl.Control.DeviceRepository;
+import at.htl.control.DeviceRepository;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
-import java.util.List;
-import java.util.Map;
-
-import static java.lang.System.out;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @QuarkusTest

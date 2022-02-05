@@ -1,4 +1,4 @@
-package at.htl.Control;
+package at.htl.control;
 
 import at.htl.Entity.Device;
 import at.htl.Entity.Owner;
@@ -9,7 +9,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @ApplicationScoped
 public class InitBean {

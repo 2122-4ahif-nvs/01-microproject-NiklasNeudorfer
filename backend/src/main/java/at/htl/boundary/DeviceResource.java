@@ -1,14 +1,9 @@
-package at.htl.Boundary;
+package at.htl.boundary;
 
-import at.htl.Control.DeviceRepository;
+import at.htl.control.DeviceRepository;
 import at.htl.Entity.Device;
-import io.quarkus.qute.CheckedTemplate;
-import io.quarkus.qute.Location;
-import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
 
 import javax.inject.Inject;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;

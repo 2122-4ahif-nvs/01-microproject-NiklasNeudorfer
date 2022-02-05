@@ -1,6 +1,4 @@
-package at.htl.Boundary;
-
-import static org.junit.jupiter.api.Assertions.*;
+package at.htl.boundary;
 
 import java.net.URI;
 import java.util.concurrent.LinkedBlockingDeque;

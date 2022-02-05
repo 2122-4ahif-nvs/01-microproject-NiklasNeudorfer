@@ -1,6 +1,6 @@
-package at.htl.Boundary;
+package at.htl.boundary;
 
-import at.htl.Control.OwnerRepository;
+import at.htl.control.OwnerRepository;
 import at.htl.Entity.Owner;
 
 import javax.inject.Inject;
@@ -10,7 +10,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.xml.transform.Result;
 import java.util.Set;
 import java.util.stream.Collectors;
 

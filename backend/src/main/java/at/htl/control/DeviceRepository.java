@@ -1,9 +1,8 @@
-package at.htl.Control;
+package at.htl.control;
 
 import at.htl.Entity.Device;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Typed;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

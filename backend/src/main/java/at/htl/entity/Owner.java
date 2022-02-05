@@ -1,8 +1,6 @@
-package at.htl.Entity;
+package at.htl.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @NamedQueries({
         @NamedQuery(

@@ -79,4 +79,14 @@ public class Owner {
 
 
     // endregion
+
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

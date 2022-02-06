@@ -46,6 +46,13 @@ bei den jeweiligen Feldern direkt:
 
 -> wenn man also schnell eine einfache website benötigt
 
+=== Where to find
+
+* Commits
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/commit/ad821415041a024e6d961713de7286985a0911f8[Qute with html]
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/commit/c41c2752047d0f912d413dd4f41079997a655117[fix Qute with html]
+
+
 === Implementierung
 
 .RoomResource
@@ -95,6 +102,14 @@ bei den jeweiligen Feldern direkt:
 
 == gRPC
 
+=== Where to find
+
+* https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/commit/3d44a412608ae36a1620cbf62643f49f67042d2e[Commit]
+* Files:
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/3d44a412608ae36a1620cbf62643f49f67042d2e/backend/src/main/java/at/htl/Boundary/HelloService.java[Service]
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/3d44a412608ae36a1620cbf62643f49f67042d2e/backend/src/main/proto/helloworld.proto[Proto File]
+
+
 === Alternativen
 
 * Rest
@@ -114,3 +129,32 @@ Dadurch hat der Server viel weniger Daten die er verarbeiten muss und ist somit 
 
 * mithilfe eines Proto files (welche jeweils auf Server und Client vorhanden sein müssen) wird es ermöglicht,
 im Vergleich zu RestAPI, viel kleinere Daten zu übermitteln, dadurch wird die Geschwindigkeit auch stark erhöht
+
+== Security
+
+=== Where to find
+
+* https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/commit/849ae8286a08c217fb354c913c4442a8613a1a25[Commit]
+* Files:
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/849ae8286a08c217fb354c913c4442a8613a1a25/backend/src/main/resources/users.properties[User Properties files]
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/849ae8286a08c217fb354c913c4442a8613a1a25/backend/src/main/resources/roles.properties[Roles Properties files]
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/849ae8286a08c217fb354c913c4442a8613a1a25/backend/src/main/resources/application.properties[Application Properties files]
+
+== WebSocket
+
+=== Where to find
+
+* Files:
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/49233d0ec9ceeac8b109dcc1d7973906904c8838/backend/src/main/java/at/htl/Boundary/ChatSocket.java[ChatSocket]
+** https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/49233d0ec9ceeac8b109dcc1d7973906904c8838/backend/src/test/java/at/htl/Boundary/ChatSocketTest.java[ChatSocket Test]
+
+
+== GraphQL
+
+=== Where to find
+
+* https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/commit/e0599bae249cd3730f8df0e4a629ef5eef9b1ac2[Commit]
+* https://github.com/2122-4ahif-nvs/01-microproject-NiklasNeudorfer/blob/main/backend/src/main/java/at/htl/Boundary/RoomResourceGraphQL.java[Resource Class]
+
+
+

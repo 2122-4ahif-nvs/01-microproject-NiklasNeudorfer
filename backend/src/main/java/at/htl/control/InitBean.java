@@ -25,8 +25,17 @@ public class InitBean {
     @Inject
     RoomRepository roomRepository;
 
+    @Inject
+    OwnerRepository ownerRepository;
+
+    @Inject
+    Logger LOG;
+
     void init(@Observes StartupEvent event) {
-        Owner o = new Owner("Sysadmin", "HTBLA Leonding");
+
+        readFile();
+
+        Owner o = new Owner("Horst", "Meier");
 
         Device d = new Device("Chromecast 4K", o, BigDecimal.valueOf(424.99));
         deviceRepository.save(d);
@@ -39,6 +48,27 @@ public class InitBean {
             Room r = new Room(i,floor, floor + " Stock ; ZimmerNr: " + i );
             roomRepository.save(r);
         }
-
     }
+
+    public void readFile(){
+        try {
+            var s = Files.lines(Paths.get("data.csv"));
+            //String header = s.findFirst().get();
+
+            s.map(l -> l.split(";"))
+                    .skip(1) // skips the header line ("FirstName;LastName;....")
+                    .map(l -> {
+                        Owner o = new Owner();
+                        o.setFirstName(l[0]);
+                        o.setLastName(l[1]);
+                        return o;
+                    }).forEach(p -> {
+                        ownerRepository.save(p);
+                    });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

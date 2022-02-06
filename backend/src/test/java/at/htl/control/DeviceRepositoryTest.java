@@ -1,6 +1,6 @@
 package at.htl.control;
 
-import at.htl.Entity.Device;
+import at.htl.entity.Device;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 

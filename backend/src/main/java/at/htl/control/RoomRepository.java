@@ -1,6 +1,6 @@
 package at.htl.control;
 
-import at.htl.Entity.Room;
+import at.htl.entity.Room;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

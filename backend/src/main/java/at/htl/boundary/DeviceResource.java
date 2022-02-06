@@ -1,7 +1,7 @@
 package at.htl.boundary;
 
 import at.htl.control.DeviceRepository;
-import at.htl.Entity.Device;
+import at.htl.entity.Device;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

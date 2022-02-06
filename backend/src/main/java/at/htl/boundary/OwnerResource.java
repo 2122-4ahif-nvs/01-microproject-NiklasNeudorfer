@@ -1,7 +1,7 @@
 package at.htl.boundary;
 
 import at.htl.control.OwnerRepository;
-import at.htl.Entity.Owner;
+import at.htl.entity.Owner;
 
 import javax.inject.Inject;
 import javax.validation.*;

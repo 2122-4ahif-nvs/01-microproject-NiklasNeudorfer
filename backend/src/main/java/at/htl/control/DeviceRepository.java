@@ -1,6 +1,6 @@
 package at.htl.control;
 
-import at.htl.Entity.Device;
+import at.htl.entity.Device;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

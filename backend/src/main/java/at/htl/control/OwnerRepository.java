@@ -1,6 +1,6 @@
 package at.htl.control;
 
-import at.htl.Entity.Owner;
+import at.htl.entity.Owner;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

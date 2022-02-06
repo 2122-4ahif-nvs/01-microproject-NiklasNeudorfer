@@ -1,7 +1,7 @@
 package at.htl.boundary;
 
 import at.htl.control.RoomRepository;
-import at.htl.Entity.Room;
+import at.htl.entity.Room;
 import org.eclipse.microprofile.graphql.*;
 
 import javax.inject.Inject;

@@ -1,0 +1,19 @@
+name: Github Pages CD
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+      - name: install stuff
+        run: |
+          sudo apt install -y tree 
+          sudo ls -lah
+          sudo tree -d

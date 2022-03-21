@@ -23,7 +23,7 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        name: tutut
+        -name: tutut
         run: |
           sudo apt install sl
           sl

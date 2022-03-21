@@ -18,3 +18,12 @@ jobs:
           sudo pwd
           sudo ls / -lah
           sudo tree -d
+
+  i-like-trains:
+      runs-on: ubuntu-latest
+
+      steps:
+        name: tutut
+        run: |
+          sudo apt install sl
+          sl

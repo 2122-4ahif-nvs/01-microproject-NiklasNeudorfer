@@ -21,8 +21,10 @@ jobs:
 
   i-like-trains:
     runs-on: ubuntu-latest
+
     steps:
       - name: tutut
         run: |
+          sudo apt update
           sudo apt install -y sl
           sl
